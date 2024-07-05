@@ -48,8 +48,4 @@
       flex-direction: row;
     }
   
-    .footer-image {
-      position: static;
-      transform: none;
-    }
   }
