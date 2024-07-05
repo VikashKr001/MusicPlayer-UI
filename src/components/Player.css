@@ -23,3 +23,14 @@
   position: relative;
   /* width: 100%; */
 }
+
+@media (min-width: 768px) {
+  .album-cover {
+    max-width: 350px;
+    height: 350px;
+  }
+
+  .controls {
+    max-width: 350px;
+  }
+}

@@ -31,4 +31,19 @@
   font-size: 14px;
 }
 
+@media (max-width: 600px) {
+  .song-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .song-item h4 {
+    font-size: 16px;
+  }
+
+  .song-item p,
+  .song-item span {
+    font-size: 12px;
+  }
+}
 

@@ -54,3 +54,21 @@ span{
   font-size: 18px;
   margin: 10px;
 }
+
+@media (min-width: 768px) {
+  .music-player {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 20%;
+  }
+
+  .main-content {
+    width: 30%;
+  }
+
+  .player-section {
+    width: 50%;
+  }
+}
