@@ -1,0 +1,34 @@
+.song-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.song-item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 100%;
+}
+
+.song-item h4,
+.song-item p {
+  margin: 0;
+}
+.song-item p{
+  font-size: 14px;
+}
+
+.song-item span {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+

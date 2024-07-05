@@ -1,0 +1,25 @@
+.player {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  /* padding: 10px; */
+  border-radius: 10x;
+}
+.info h2,
+.info p {
+  margin: 5px;
+}
+
+.album-cover {
+  max-width: 350px;
+  height: 350px;
+  margin: 10px 5px;
+  border-radius: 5px;
+}
+
+.controls {
+  max-width: 350px;
+  position: relative;
+  /* width: 100%; */
+}
