@@ -3,7 +3,6 @@ import { FastAverageColor } from 'fast-average-color';
 import './Player.css';
 
 const Player = ({ song }) => {
-  const [bgColor, setBgColor] = useState('#121212');
   const coverRef = useRef(null);
 
   useEffect(() => {

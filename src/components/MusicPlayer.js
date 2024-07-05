@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './MusicPlayer.css';
 import Header from './Header';
 import SearchBar from './SearchBar';
@@ -28,24 +28,6 @@ const MusicPlayer = () => {
       .catch(error => console.error('Error fetching songs:', error));
   }, []);
 
-  useEffect(() => {
-    filterSongs();
-  }, [songs, currentTab]);
-
-  useEffect(() => {
-    if (currentSong) {
-      const audioElement = audioRef.current;
-      audioElement.src = currentSong.url;
-      audioElement.load();
-      audioElement.onloadedmetadata = () => {
-        setDurations(prevDurations => ({
-          ...prevDurations,
-          [currentSong.id]: audioElement.duration
-        }));
-      };
-    }
-  }, [currentSong]);
-
   const fetchDurations = (songs) => {
     songs.forEach(song => {
       const audio = new Audio(song.url);
@@ -58,7 +40,7 @@ const MusicPlayer = () => {
     });
   };
 
-  const filterSongs = (query = '') => {
+  const filterSongs = useCallback((query = '') => {
     let filtered = songs;
 
     if (currentTab === 'topTracks') {
@@ -80,7 +62,25 @@ const MusicPlayer = () => {
     } else {
       setCurrentSong(null);
     }
-  };
+  }, [songs, currentTab]);
+
+  useEffect(() => {
+    filterSongs();
+  }, [songs, currentTab, filterSongs]);
+
+  useEffect(() => {
+    if (currentSong) {
+      const audioElement = audioRef.current;
+      audioElement.src = currentSong.url;
+      audioElement.load();
+      audioElement.onloadedmetadata = () => {
+        setDurations(prevDurations => ({
+          ...prevDurations,
+          [currentSong.id]: audioElement.duration
+        }));
+      };
+    }
+  }, [currentSong]);
 
   const handleSearch = (query) => {
     filterSongs(query);
